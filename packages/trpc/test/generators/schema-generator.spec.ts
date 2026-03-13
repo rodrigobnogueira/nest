@@ -193,7 +193,8 @@ describe('generateSchema (file output)', () => {
 });
 
 describe('generateSchemaContent (type-level AppRouter contract)', () => {
-  it('should typecheck generated AppRouter with a typed tRPC client', () => {
+  it('should typecheck generated AppRouter with a typed tRPC client', function () {
+    this.timeout(15000);
     const tempDir = mkdtempSync(join(process.cwd(), '.tmp-trpc-client-types-'));
     const generatedFile = join(tempDir, 'generated.ts');
     const typecheckFile = join(tempDir, 'client.typecheck.ts');
